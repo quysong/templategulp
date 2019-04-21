@@ -57,12 +57,12 @@ gulp.task('watch', function() {
     gulp.watch(['html/*'], browserSync.reload);
 });
 
-// var template = require('gulp-template-html');
-// gulp.task("build-template", function() {
-//     return gulp.src("./src/pages/*.html")
-//     .pipe(template("./src/template/_layout.html"))
-//     .pipe(gulp.dest("./html"));
-//     });
+var template = require('gulp-template-html');
+gulp.task("build-template", function() {
+    return gulp.src("./src/pages/*.html")
+    .pipe(template("./src/template/_layout.html"))
+    .pipe(gulp.dest("./html"));
+    });
 
 // Default Task
-gulp.task('default', ['sass', 'scripts', 'watch']);
+gulp.task('default', ['sass', 'scripts', 'watch', 'build-template']);
